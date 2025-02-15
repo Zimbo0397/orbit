@@ -1,0 +1,76 @@
+// 
+// _theme-config.scss (:root variable)
+// 
+
+// Font Family (Google Font)
+// @use "https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600&display=swap";
+
+
+// Root Variable
+:root {
+    --tw-body-font-family:           "Baloo Paaji 2",cursive;
+    --tw-body-bg:                    theme(backgroundColor.gray.100);
+    --tw-body-color:                 theme(colors.slate.500);
+}
+
+:root {
+    --tw-sidenav-width:             240px;
+    --tw-sidenav-width-md:          175px;
+    --tw-sidenav-width-sm:           80px;
+    --tw-sidenav-sm-height:        1500px;
+
+    --tw-topbar-height:              70px;
+
+    --tw-menu-item-padding-x:        15px;
+    --tw-menu-item-gap:               5px;
+
+    --tw-menu-link-padding-x:        15px;
+    --tw-menu-link-padding-y:        10px;
+
+    --tw-menu-link-item-gap:         10px;
+
+    --tw-menu-item-icon-size:        20px;
+    --tw-menu-item-font-size:        15px;
+}
+
+
+
+// Dark Menu
+html[data-menu-color="dark"] {
+    --tw-menu-bg:                               theme(backgroundColor.gray.800);
+    --tw-menu-item-color:                       rgb(144, 151, 167);
+    --tw-menu-item-active-color:                rgb(200, 205, 220);
+    --tw-menu-item-hover-color:                 rgb(200, 205, 220);
+}
+
+// Light Menu
+html[data-menu-color="light"] {
+    --tw-menu-bg:                               #f5f7fa;
+    --tw-menu-item-color:                       rgb(108, 117, 125);
+    --tw-menu-item-active-color:                rgb(30, 133, 255);
+    --tw-menu-item-hover-color:                 rgb(30, 133, 255);
+}
+
+// Brand Menu
+html[data-menu-color="brand"] {
+    --tw-menu-bg:                             theme(backgroundColor.primary);
+    --tw-menu-item-color:                     rgb(206, 220, 228);
+    --tw-menu-item-active-color:              white;
+    --tw-menu-item-hover-color:               white;
+}
+
+// Light Topbar
+html[data-topbar-color="light"] {
+    --tw-topbar-bg:                           rgba(255, 255, 255);
+    --tw-topbar-item-color:                   rgb(108, 117, 125);
+    --tw-topbar-item-active-color:            rgb(30, 133, 255);
+    --tw-topbar-item-hover-color:             rgb(30, 133, 255);
+}
+
+// Dark Topbar
+html[data-topbar-color="dark"] {
+    --tw-topbar-bg:                           rgba(30, 41, 59);
+    --tw-topbar-item-color:                   rgb(131, 145, 162);
+    --tw-topbar-item-active-color:            rgb(188, 206, 228);
+    --tw-topbar-item-hover-color:             rgb(188, 206, 228);
+}

@@ -1,0 +1,54 @@
+/*
+Template Name: Plug - Responsive Tailwind Admin Dashboard
+Version: 6.1.0
+Author: Myra Studio
+Email: @gmail.com
+File: Main Css File
+*/
+
+
+
+
+@use "config/variables";
+@use "config/theme-config";
+
+// Structure
+@use "structure/sidenav";
+@use "structure/topbar";
+
+// Components
+@use "custom/reboot";
+@use "custom/buttons";
+@use "custom/card";
+@use "custom/forms";
+@use "custom/print";
+@use "custom/helper";
+
+// Plugins (Extended UI Components) 
+@use "plugins/swiper";
+@use "plugins/simplebar";
+@use "plugins/sweetalert2";
+@use "plugins/sortablejs";
+@use "plugins/glightbox";
+
+// Chart Plugins
+@use "plugins/apexcharts";
+
+// Advanced Form Plugins
+@use "plugins/dropzone";
+@use "plugins/range-slider";
+@use "plugins/flatpicker";
+@use "plugins/quilljs";
+
+// Data Table
+
+// Map Plugins
+@use "plugins/wave";
+@use "plugins/google-map";
+
+// App Pages Plugins
+@use "plugins/fullcalendar";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

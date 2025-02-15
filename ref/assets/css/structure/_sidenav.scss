@@ -1,0 +1,165 @@
+//
+// _sidenav.scss
+//
+
+// Page Content
+.page-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-block-size: 100vh;
+}
+
+// Sidenav Menu
+.app-menu {
+    width: $sidenav-width;
+    min-width: $sidenav-width;
+    background: $menu-bg;
+    @apply sticky top-0 h-screen  z-40 transition-all duration-300;
+
+    [data-simplebar] {
+        height: calc(100% - $topbar-height);
+    }
+}
+
+// Logo Box
+.logo-box {
+    height: $topbar-height;
+    color: $menu-item-color;
+    @apply sticky top-0 z-50 flex items-center justify-center transition-all duration-300;
+
+
+    .logo-light {
+        display: none;
+    }
+
+    .logo-dark {
+        display: block;
+    }
+}
+
+html[data-menu-color="brand"],
+html[data-menu-color="dark"] {
+    .app-menu {
+        .logo-box {
+            .logo-light {
+                display: block;
+            }
+
+            .logo-dark {
+                display: none;
+            }
+        }
+    }
+}
+
+// menu
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: $menu-item-gap;
+    padding: $menu-item-gap 0;
+
+    .menu-title {
+        color: $menu-item-color;
+        font-size: calc($menu-item-font-size * 0.8);
+        padding: $menu-link-padding-y calc($menu-link-padding-x + $menu-item-padding-x);
+        @apply font-medium opacity-75 cursor-default tracking-widest whitespace-nowrap;
+    }
+
+    >.menu-item {
+        padding: 0 $menu-item-padding-x;
+    }
+
+    .menu-item {
+        .menu-link {
+            color: $menu-item-color;
+            gap: $menu-link-item-gap;
+            padding: $menu-link-padding-y $menu-link-padding-x;
+            @apply relative flex items-center transition-all whitespace-nowrap rounded-lg bg-transparent;
+
+            >.menu-icon {
+                width: $menu-item-icon-size;
+                height: $menu-item-icon-size;
+                font-size: $menu-item-icon-size;
+                line-height: $menu-item-icon-size;
+                @apply transition-all;
+
+                svg {
+                    width: $menu-item-icon-size;
+                    height: $menu-item-icon-size;
+                    stroke: inherit;
+                }
+            }
+
+            >.menu-text {
+                font-size: $menu-item-font-size;
+                line-height: $menu-item-font-size;
+                @apply whitespace-nowrap transition-all;
+            }
+
+            >.menu-arrow {
+                font-size: $menu-item-font-size;
+                line-height: $menu-item-font-size;
+                font-family: "boxicons";
+                @apply transition-all ms-auto rtl:rotate-180;
+
+                &::before {
+                    content: "\ea50";
+                }
+            }
+
+            >.badge {
+                @apply flex justify-center items-center h-5 px-2 ms-auto font-semibold text-white text-center whitespace-nowrap align-baseline;
+                font-size: calc($menu-item-font-size * 0.80);
+            }
+
+
+            &:is(.open) {
+                >.menu-arrow {
+                    transform: rotate(90deg);
+                }
+            }
+
+            &:is(.open, .active, :active, :focus) {
+                color: $menu-item-active-color;
+            }
+
+            &:is(:hover) {
+                color: $menu-item-hover-color;
+            }
+        }
+    }
+
+    // Sub Level Menu
+    .sub-menu {
+        @apply w-full overflow-hidden transition-all duration-300;
+        padding-inline-start: calc($menu-item-icon-size + $menu-link-item-gap);
+
+        .sub-menu {
+            padding-inline-start: calc($menu-item-icon-size);
+        }
+    }
+}
+
+// Hidden Sidenav View ( Fullscreen page content view)
+html[data-sidebar-view="hidden"] {
+    .app-menu {
+        margin-inline-start: calc($sidenav-width * -1);
+    }
+}
+
+// Mobile View Sidenav (Mobile Sidebar || Open Sidenav with Backdrop)
+html[data-sidebar-view="mobile"] {
+    .app-menu {
+        margin-inline-start: calc($sidenav-width * -1);
+        @apply fixed opacity-0;
+    }
+
+    &.sidenav-enable {
+        .app-menu {
+            margin-inline-start: 0;
+            @apply opacity-100 z-50;
+        }
+    }
+}
